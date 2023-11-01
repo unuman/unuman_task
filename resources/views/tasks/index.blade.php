@@ -16,7 +16,7 @@
         @endforeach
     </ul>
 
-    <button onclick='location.href="{{ route("tasks.create") }}"'>登録するcreateに戻る</button>
+    <button onclick='location.href="{{ route("tasks.create") }}"'>登録するcreateを表示</button>
 </body>
 
 </html>

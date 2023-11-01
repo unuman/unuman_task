@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class TaskController extends Controller
 {
@@ -34,5 +35,31 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         return view('tasks.show', ['task' => $task]);
+    }
+
+    public function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit', ['task' => $task]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $task = Task::find($id);
+
+        $task->title = $request->title;
+        $task->body = $request->body;
+
+        $task->save();
+
+        return redirect(route("tasks.index"));
+    }
+
+    public function destroy($id)
+    {
+        $task = Task::find($id);
+        $task->delete();
+
+        return redirect(route("tasks.index"));
     }
 }
