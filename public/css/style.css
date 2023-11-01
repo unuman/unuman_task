@@ -1,18 +1,18 @@
 @charset "utf-8";
 
 .body {
-    width: 300px;
-    height: 100px;
+    width: 150px;
+    height: 30px;
 }
 
 .button-group {
     display: flex;
 }
 
-.button-group>*:not(:last-child) {
-    margin-right: 10px;
+.button-group1 {
+    display: flex;
 }
 
-.error {
-    color: red;
+.button-group1>*:not(:last-child) {
+    margin-right: 10px;
 }

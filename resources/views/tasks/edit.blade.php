@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <a href="{{ route('tasks.show', $task) }}">戻るshowを表示</a>
-    <h1>更新</h1>
-
+    <h1>投稿論文編集</h1>
     @if ($errors->any())
         <div class="error">
             <p>
@@ -30,15 +28,17 @@
         @csrf
         @method('PATCH')
         <P>
-            <label for="title">タイトル</label><br>
+            <label for="title">論文タイトル</label><br>
             <input type="text" name="title" id="title" value="{{ old('title', $task->title) }}">
         </P>
         <p>
-            <label for="body">内容</label><br>
-            <textarea name="body" class="body" id="body">{{ old('body, $task->body') }}</textarea>
+            <label for="body">本文</label><br>
+            <textarea name="body" class="body" id="body">{{ old('body', $task->body) }}</textarea>
         </p>
-
-        <input type="submit" value="更新">
+        <div class="button-group">
+            <input type="submit" value="更新">
+            <button type="button" onclick='location.href="{{ route('tasks.show', $task) }}"'>詳細に戻る</button>
+        </div>
     </form>
 </body>
 
