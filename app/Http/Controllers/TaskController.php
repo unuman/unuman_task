@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 use Illuminate\Support\Facades\Redis;
 
 class TaskController extends Controller
@@ -19,7 +19,7 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         $task = new Task;
 
@@ -43,7 +43,7 @@ class TaskController extends Controller
         return view('tasks.edit', ['task' => $task]);
     }
 
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, $id)
     {
         $task = Task::find($id);
 
